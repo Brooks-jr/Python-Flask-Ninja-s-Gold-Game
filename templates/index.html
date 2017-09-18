@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <title> Ninja Gold </title>
+    </head>
+
+    <body>
+        <div class="container">
+            <div id="gold">
+                <h3>Your Gold: {{ purse }}</h3>
+                <form action="/restart" method="POST" class="restart">
+                    <input type="submit" name="submit" value="restart" >
+                </form>
+            </div>
+
+            <div class="location">
+                <h3>Farm</h3>
+                <p>(earns 10-20 golds)</p>
+                <form action="/process_money" method="POST">
+                    <input type="hidden" name="hidden" value="farm" >
+                    <input type="submit" name="submit" value="Find Gold!" >
+                </form>
+            </div>
+            
+            <div class="location">
+                <h3>Cave</h3>
+                <p>(earns 5-10 golds)</p>
+                <form action="/process_money" method="POST">
+                    <input type="hidden" name="hidden" value="cave" >
+                    <input type="submit" name="submit" value="Find Gold!" >
+                </form>
+            </div>
+            
+            <div class="location">
+                <h3>House</h3>
+                <p>(earns 2-5 golds)</p>
+                <form action="/process_money" method="POST">
+                    <input type="hidden" name="hidden" value="house" >
+                    <input type="submit" name="submit" value="Find Gold!" >
+                </form>
+            </div>
+            
+            <div class="location">
+                <h3>Casino</h3>
+                <p>(earns/takes 0-50 golds)</p>
+                <form action="/process_money" method="POST">
+                    <input type="hidden" name="hidden" value="casino" >
+                    <input type="submit" name="submit" value="Find Gold!" >
+                </form>
+            </div>
+            
+            <div id="activities">
+            <h3>Activities:</h3>
+            {% if activities %}
+            <ul>
+                {% for id, activity in activities %}
+                <li id= {{ id }}>{{activity}}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </div>
+        
+        
+        </div>
+    </body>
+
+</html>
